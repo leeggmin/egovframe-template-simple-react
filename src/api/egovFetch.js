@@ -26,12 +26,9 @@ export function requestFetch(url, requestOptions, handler, errorHandler) {
         alert("Login Alert");
         setSessionItem("loginUser", { id: "" });
         window.location.href = URL.LOGIN;
-        return false;
-      } else {
-        return resp;
+        return;
       }
-    })
-    .then((resp) => {
+
       if (typeof handler === "function") {
         handler(resp);
       } else {
