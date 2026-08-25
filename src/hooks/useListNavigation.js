@@ -67,7 +67,7 @@ export function useListNavigation(defaultBbsId) {
   const getBackToListURL = (baseURL, searchCondition) => {
     const searchParams = new URLSearchParams();
     if (searchCondition?.pageIndex > 1) searchParams.set('page', searchCondition.pageIndex);
-    if (searchCondition?.searchCnd !== "0") searchParams.set('searchCnd', searchCondition.searchCnd);
+    if (searchCondition?.searchCnd && searchCondition.searchCnd !== "0") searchParams.set('searchCnd', searchCondition.searchCnd);
     if (searchCondition?.searchWrd) searchParams.set('searchWrd', searchCondition.searchWrd);
 
     return `${baseURL}${searchParams.toString() ? '?' + searchParams.toString() : ''}`;
