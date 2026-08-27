@@ -9,11 +9,10 @@ import { GALLERY_BBS_ID } from "@/config";
 
 import { default as EgovLeftNav } from "@/components/leftmenu/EgovLeftNavAdmin";
 import EgovAttachFile from "@/components/EgovAttachFile";
-import bbsFormVaildator from "@/utils/bbsFormVaildator";
+import bbsFormVaildator from "@/utils/bbsFormValidator";
 import { useDebouncedInput } from "@/hooks/useDebounce";
 
 function EgovAdminGalleryEdit(props) {
-
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -124,7 +123,7 @@ function EgovAdminGalleryEdit(props) {
           // alert("ERR : " + resp.message);
           navigate(
             { pathname: URL.ERROR },
-            { state: { msg: resp.resultMessage } }
+            { state: { msg: resp.resultMessage } },
           );
         }
       });
@@ -153,7 +152,6 @@ function EgovAdminGalleryEdit(props) {
     intMode();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
 
   return (
     <div className="container">

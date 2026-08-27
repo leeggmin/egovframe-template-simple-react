@@ -9,12 +9,11 @@ import { NOTICE_BBS_ID } from "@/config";
 
 import { default as EgovLeftNav } from "@/components/leftmenu/EgovLeftNavInform";
 import EgovAttachFile from "@/components/EgovAttachFile";
-import bbsFormVaildator from "@/utils/bbsFormVaildator";
+import bbsFormVaildator from "@/utils/bbsFormValidator";
 import { useAuth } from "@/contexts/AuthContext";
 import { useDebouncedInput } from "@/hooks/useDebounce";
 
 function EgovNoticeEdit(props) {
-
   const navigate = useNavigate();
   const location = useLocation();
   // 관리자 권한 체크: 백엔드 /auth/me 결과 사용
@@ -128,7 +127,7 @@ function EgovNoticeEdit(props) {
           // alert("ERR : " + resp.message);
           navigate(
             { pathname: URL.ERROR },
-            { state: { msg: resp.resultMessage } }
+            { state: { msg: resp.resultMessage } },
           );
         }
       });
@@ -157,7 +156,6 @@ function EgovNoticeEdit(props) {
     initMode();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
 
   return (
     <div className="container">

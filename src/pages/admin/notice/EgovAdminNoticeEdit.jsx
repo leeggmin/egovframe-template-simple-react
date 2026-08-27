@@ -9,12 +9,11 @@ import { NOTICE_BBS_ID } from "@/config";
 
 import { default as EgovLeftNav } from "@/components/leftmenu/EgovLeftNavAdmin";
 import EgovAttachFile from "@/components/EgovAttachFile";
-import bbsFormVaildator from "@/utils/bbsFormVaildator";
+import bbsFormVaildator from "@/utils/bbsFormValidator";
 
 import { useDebouncedInput } from "@/hooks/useDebounce";
 
 function EgovAdminNoticeEdit(props) {
-
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -72,7 +71,7 @@ function EgovAdminNoticeEdit(props) {
       };
 
       EgovNet.requestFetch(retrieveDetailURL, requestOptions, function (resp) {
-        setMasterBoard(resp.result );
+        setMasterBoard(resp.result);
       });
 
       setBoardDetail({ bbsId: bbsId, nttSj: "", nttCn: "" });
@@ -125,7 +124,7 @@ function EgovAdminNoticeEdit(props) {
           // alert("ERR : " + resp.message);
           navigate(
             { pathname: URL.ERROR },
-            { state: { msg: resp.resultMessage } }
+            { state: { msg: resp.resultMessage } },
           );
         }
       });
@@ -154,7 +153,6 @@ function EgovAdminNoticeEdit(props) {
     intMode();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
 
   return (
     <div className="container">
